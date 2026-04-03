@@ -583,12 +583,251 @@
       display: block;
     }
 
+    /* Dark Mode Styles */
+    body.dark-mode {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    }
+
+    body.dark-mode .app-wrapper {
+      background: #0f1419;
+      color: #e0e0e0;
+    }
+
+    body.dark-mode .card {
+      background: #1a1f2e;
+      border-color: #2d3748;
+      color: #e0e0e0;
+    }
+
+    body.dark-mode .card-title {
+      color: #64b5f6;
+    }
+
+    body.dark-mode input, body.dark-mode select {
+      background: #2d3748;
+      border-color: #3a4556;
+      color: #e0e0e0;
+    }
+
+    body.dark-mode input:focus, body.dark-mode select:focus {
+      border-color: #64b5f6;
+      background: #374151;
+    }
+
+    body.dark-mode label {
+      color: #b0bec5;
+    }
+
+    body.dark-mode table thead {
+      background: #2d3748;
+    }
+
+    body.dark-mode table th {
+      color: #b0bec5;
+    }
+
+    body.dark-mode table td {
+      border-bottom-color: #2d3748;
+      color: #e0e0e0;
+    }
+
+    body.dark-mode table tr:hover {
+      background: #2d3748;
+    }
+
+    body.dark-mode .semester-card {
+      background: #1a1f2e;
+      border-color: #2d3748;
+    }
+
+    body.dark-mode .semester-title {
+      color: #64b5f6;
+    }
+
+    body.dark-mode .semester-stat-label {
+      color: #90a4ae;
+    }
+
+    body.dark-mode .semester-stat-value {
+      color: #64b5f6;
+    }
+
+    body.dark-mode .empty-state h3 {
+      color: #90a4ae;
+    }
+
+    body.dark-mode .empty-state p {
+      color: #607d8b;
+    }
+
+    body.dark-mode .modal {
+      background: #1a1f2e;
+      color: #e0e0e0;
+    }
+
+    body.dark-mode .filter-stats-box {
+      background: #1e3a5f;
+      color: #64b5f6;
+    }
+
+    /* Global Search Bar */
+    .search-bar-wrapper {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding: 16px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    body.dark-mode .search-bar-wrapper {
+      background: #1a1f2e;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .search-bar-wrapper input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 2px solid #ecf0f1;
+      border-radius: 10px;
+      font-size: 14px;
+      font-family: 'Poppins', sans-serif;
+      color: #2c3e50;
+      background: #f8f9fa;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    body.dark-mode .search-bar-wrapper input {
+      background: #2d3748;
+      border-color: #3a4556;
+      color: #e0e0e0;
+    }
+
+    .search-bar-wrapper input:focus {
+      border-color: #2a5298;
+      box-shadow: 0 0 0 4px rgba(42, 82, 152, 0.1);
+    }
+
+    .search-results-container {
+      max-height: 400px;
+      overflow-y: auto;
+      background: white;
+      border: 1px solid #ecf0f1;
+      border-radius: 10px;
+      position: absolute;
+      width: 100%;
+      top: 100%;
+      margin-top: 8px;
+      z-index: 100;
+      display: none;
+    }
+
+    body.dark-mode .search-results-container {
+      background: #1a1f2e;
+      border-color: #2d3748;
+    }
+
+    .search-results-container.active {
+      display: block;
+    }
+
+    .search-result-item {
+      padding: 12px 16px;
+      border-bottom: 1px solid #ecf0f1;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    body.dark-mode .search-result-item {
+      border-bottom-color: #2d3748;
+    }
+
+    .search-result-item:hover {
+      background: #f8f9fa;
+    }
+
+    body.dark-mode .search-result-item:hover {
+      background: #2d3748;
+    }
+
+    .search-result-item-name {
+      font-weight: 600;
+      color: #1e3c72;
+      font-size: 14px;
+    }
+
+    body.dark-mode .search-result-item-name {
+      color: #64b5f6;
+    }
+
+    .search-result-item-info {
+      font-size: 12px;
+      color: #7f8c8d;
+      margin-top: 4px;
+    }
+
+    body.dark-mode .search-result-item-info {
+      color: #90a4ae;
+    }
+
+    /* Month-wise Report */
+    .report-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .report-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+    }
+
+    .report-card.month-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    .report-card.month-2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+    .report-card.month-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+    .report-card.month-4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+    .report-card.month-5 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+    .report-card.month-6 { background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); }
+    .report-card.month-7 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+    .report-card.month-8 { background: linear-gradient(135deg, #ff9a56 0%, #ff6a88 100%); }
+    .report-card.month-9 { background: linear-gradient(135deg, #2e2e78 0%, #662d91 100%); }
+    .report-card.month-10 { background: linear-gradient(135deg, #bfd14f 0%, #c55e1e 100%); }
+    .report-card.month-11 { background: linear-gradient(135deg, #e04d01 0%, #f7e74f 100%); }
+    .report-card.month-12 { background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); }
+
+    .report-month {
+      font-size: 12px;
+      opacity: 0.9;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .report-total {
+      font-size: 28px;
+      font-weight: 700;
+      font-family: 'Outfit', sans-serif;
+      margin-bottom: 8px;
+    }
+
+    .report-count {
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
     /* Print Styles */
     @media print {
       body {
         background: white;
       }
-      header, .tab-navigation, .button-group, .action-btn, .filter-section {
+      header, .tab-navigation, .button-group, .action-btn, .filter-section, .search-bar-wrapper, .theme-toggle {
         display: none;
       }
       .modal-overlay {
@@ -654,12 +893,12 @@
     <div class="header-content">
      <h1 id="institute-name">National Polytechnic Institute</h1>
      <p id="institute-tagline">Online Semester Registration System</p>
-    </div>
+    </div><button id="theme-toggle" class="theme-toggle" style="background: rgba(255,255,255,0.2); border: none; color: white; width: 44px; height: 44px; border-radius: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; margin-left: auto; transition: all 0.3s ease;"> <i data-lucide="moon" style="width: 24px; height: 24px;"></i> </button>
    </header><!-- Main Content -->
    <div class="main-content">
     <!-- Tab Navigation -->
     <div class="tab-navigation">
-     <button class="tab-btn active" data-tab="registration"> <i data-lucide="edit-3"></i> New Registration </button> <button class="tab-btn" data-tab="dashboard"> <i data-lucide="bar-chart-2"></i> Semester Dashboard </button> <button class="tab-btn" data-tab="history"> <i data-lucide="history"></i> Registration History </button>
+     <button class="tab-btn active" data-tab="registration"> <i data-lucide="edit-3"></i> New Registration </button> <button class="tab-btn" data-tab="dashboard"> <i data-lucide="bar-chart-2"></i> Semester Dashboard </button> <button class="tab-btn" data-tab="reports"> <i data-lucide="pie-chart"></i> Monthly Reports </button> <button class="tab-btn" data-tab="history"> <i data-lucide="history"></i> Registration History </button>
     </div><!-- Registration Section -->
     <div class="section active" id="registration">
      <div class="card">
@@ -717,7 +956,31 @@
       <div id="dashboard-stats-box" class="filter-stats-box"></div>
       <div id="dashboard-container"></div>
      </div>
-    </div><!-- History Section -->
+    </div><!-- Dashboard Section -->
+    <div class="section" id="dashboard">
+     <div class="card">
+      <h2 class="card-title"><i data-lucide="bar-chart-2" style="width: 24px; height: 24px;"></i> Semester Registration Status</h2><!-- Dashboard Filters -->
+      <div class="filter-section" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 25px; padding-bottom: 20px; border-bottom: 2px solid #ecf0f1;">
+       <div class="form-group">
+        <label for="dashboard-filter-department">Filter by Department</label> <select id="dashboard-filter-department"> <option value="">All Departments</option> <option value="Computer Science">Computer Science</option> <option value="Food Technology">Food Technology</option> <option value="Civil Engineering">Civil Engineering</option> <option value="Electrical Engineering">Electrical Engineering</option> <option value="Mechanical Engineering">Mechanical Engineering</option> <option value="Architecture">Architecture</option> <option value="Automobile Engineering">Automobile Engineering</option> </select>
+       </div>
+       <div class="form-group">
+        <label for="dashboard-filter-semester">Filter by Semester</label> <select id="dashboard-filter-semester"> <option value="">All Semesters</option> <option value="1st">1st Semester</option> <option value="2nd">2nd Semester</option> <option value="3rd">3rd Semester</option> <option value="4th">4th Semester</option> <option value="5th">5th Semester</option> <option value="6th">6th Semester</option> <option value="7th">7th Semester</option> <option value="8th">8th Semester</option> </select>
+       </div>
+       <div class="form-group">
+        <label>&nbsp;</label> <button id="dashboard-reset-filters" class="btn-secondary" style="width: 100%;"> <i data-lucide="rotate-ccw"></i> Reset Filters </button>
+       </div>
+      </div><!-- Dashboard Stats -->
+      <div id="dashboard-stats-box" class="filter-stats-box"></div>
+      <div id="dashboard-container"></div>
+     </div>
+    </div><!-- Reports Section -->
+    <div class="section" id="reports">
+     <div class="card">
+      <h2 class="card-title"><i data-lucide="pie-chart" style="width: 24px; height: 24px;"></i> Monthly Registration Reports</h2>
+      <div id="reports-container"></div>
+     </div>
+    </div>
     <div class="section" id="history">
      <!-- Stats -->
      <div class="stats-grid">
@@ -747,7 +1010,11 @@
       </div>
      </div><!-- Table -->
      <div class="card">
-      <h2 class="card-title"><i data-lucide="table" style="width: 24px; height: 24px;"></i> Registration History</h2><!-- Filter Section -->
+      <h2 class="card-title"><i data-lucide="table" style="width: 24px; height: 24px;"></i> Registration History</h2><!-- Global Search Bar -->
+      <div class="search-bar-wrapper" style="position: relative;">
+       <i data-lucide="search" style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: #7f8c8d; width: 20px; height: 20px; pointer-events: none;"></i> <input type="text" id="global-search" placeholder="🔍 Search by name, board roll, department, semester..." style="padding-left: 40px;"> <button id="export-csv" class="btn-primary" style="white-space: nowrap;"> <i data-lucide="download"></i> Export CSV </button>
+       <div class="search-results-container" id="search-results"></div>
+      </div><!-- Filter Section -->
       <div class="filter-section" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 25px; padding-bottom: 20px; border-bottom: 2px solid #ecf0f1;">
        <div class="form-group">
         <label for="filter-department">Filter by Department</label> <select id="filter-department"> <option value="">All Departments</option> <option value="Computer Science">Computer Science</option> <option value="Food Technology">Food Technology</option> <option value="Civil Engineering">Civil Engineering</option> <option value="Electrical Engineering">Electrical Engineering</option> <option value="Mechanical Engineering">Mechanical Engineering</option> <option value="Architecture">Architecture</option> <option value="Automobile Engineering">Automobile Engineering</option> </select>
@@ -878,6 +1145,7 @@
       loadSemesterData();
       updateStats();
       updateDashboard();
+      generateMonthlyReports();
       renderHistoryTable();
 
       if (window.elementSdk) {
@@ -1037,6 +1305,7 @@
       allRegistrations = existing;
       updateStats();
       updateDashboard();
+      generateMonthlyReports();
       renderHistoryTable();
       showToast('✓ Registration saved successfully!');
       document.getElementById('registration-form').reset();
@@ -1411,6 +1680,7 @@
       
       updateStats();
       updateDashboard();
+      generateMonthlyReports();
       renderHistoryTable();
       showToast('✓ Registration deleted successfully');
       document.getElementById('delete-modal').classList.remove('active');
@@ -1493,6 +1763,177 @@
         setTimeout(() => toast.remove(), 300);
       }, 3000);
     }
+
+    // Dark Mode Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const isDarkMode = localStorage.getItem('darkMode') === 'true';
+    if (isDarkMode) {
+      document.body.classList.add('dark-mode');
+      themeToggle.innerHTML = '<i data-lucide="sun" style="width: 24px; height: 24px;"></i>';
+    }
+
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      localStorage.setItem('darkMode', isDark);
+      themeToggle.innerHTML = isDark 
+        ? '<i data-lucide="sun" style="width: 24px; height: 24px;"></i>'
+        : '<i data-lucide="moon" style="width: 24px; height: 24px;"></i>';
+      lucide.createIcons();
+    });
+
+    // Global Search Functionality
+    const globalSearchInput = document.getElementById('global-search');
+    const searchResultsContainer = document.getElementById('search-results');
+
+    globalSearchInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+      
+      if (!query) {
+        searchResultsContainer.classList.remove('active');
+        return;
+      }
+
+      const filtered = allRegistrations.filter(reg => 
+        reg.student_name.toLowerCase().includes(query) ||
+        reg.board_roll.toLowerCase().includes(query) ||
+        reg.department.toLowerCase().includes(query) ||
+        reg.semester.toLowerCase().includes(query) ||
+        reg.phone_number.includes(query)
+      );
+
+      if (filtered.length === 0) {
+        searchResultsContainer.innerHTML = '<div class="search-result-item" style="text-align: center; color: #7f8c8d;">No results found</div>';
+      } else {
+        searchResultsContainer.innerHTML = filtered.map(reg => `
+          <div class="search-result-item" onclick="handleSearchResultClick('${reg.id}')">
+            <div class="search-result-item-name">${reg.student_name}</div>
+            <div class="search-result-item-info">${reg.board_roll} • ${reg.department} • ${reg.semester}</div>
+          </div>
+        `).join('');
+      }
+
+      searchResultsContainer.classList.add('active');
+      lucide.createIcons();
+    });
+
+    function handleSearchResultClick(recordId) {
+      const record = allRegistrations.find(r => r.id === recordId);
+      if (record) {
+        // Scroll to history tab and highlight the record
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        
+        document.querySelector('[data-tab="history"]').classList.add('active');
+        document.getElementById('history').classList.add('active');
+        
+        globalSearchInput.value = '';
+        searchResultsContainer.classList.remove('active');
+        renderHistoryTable();
+        
+        setTimeout(() => {
+          const rows = document.querySelectorAll('table tbody tr');
+          rows.forEach(row => {
+            if (row.textContent.includes(record.board_roll)) {
+              row.style.backgroundColor = '#fff3cd';
+              setTimeout(() => row.style.backgroundColor = '', 2000);
+            }
+          });
+        }, 100);
+      }
+    }
+
+    // Export to CSV
+    document.getElementById('export-csv').addEventListener('click', () => {
+      if (allRegistrations.length === 0) {
+        showToast('⚠️ No registrations to export');
+        return;
+      }
+
+      const headers = ['Student Name', 'Board Roll', 'Department', 'Semester', 'Session', 'Location', 'Phone', 'Fee (TK)', 'Date'];
+      const rows = allRegistrations.map(reg => [
+        `"${reg.student_name}"`,
+        `"${reg.board_roll}"`,
+        `"${reg.department}"`,
+        `"${reg.semester}"`,
+        `"${reg.session}"`,
+        `"${reg.location}"`,
+        `"${reg.phone_number}"`,
+        `"${reg.registration_fee}"`,
+        `"${new Date(reg.registration_date).toLocaleDateString('en-GB')}"`
+      ]);
+
+      // Build CSV content
+      let csvContent = 'data:text/csv;charset=utf-8,';
+      csvContent += headers.map(h => `"${h}"`).join(',') + '\n';
+      rows.forEach(row => {
+        csvContent += row.join(',') + '\n';
+      });
+
+      // Encode and create download link
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement('a');
+      link.setAttribute('href', encodedUri);
+      link.setAttribute('download', `registrations-${new Date().toISOString().split('T')[0]}.csv`);
+      
+      // Trigger download
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      showToast('✓ CSV downloading...');
+    });
+
+    // Generate Monthly Reports
+    function generateMonthlyReports() {
+      const monthlyData = {};
+
+      allRegistrations.forEach(reg => {
+        const date = new Date(reg.registration_date);
+        const month = date.getMonth() + 1;
+        const year = date.getFullYear();
+        const key = `${year}-${month}`;
+
+        if (!monthlyData[key]) {
+          monthlyData[key] = { count: 0, total: 0, month: month, year: year };
+        }
+        monthlyData[key].count++;
+        monthlyData[key].total += parseInt(reg.registration_fee) || 0;
+      });
+
+      const container = document.getElementById('reports-container');
+      
+      if (Object.keys(monthlyData).length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <i data-lucide="bar-chart-2"></i>
+            <h3>No Data Available</h3>
+            <p>Monthly reports will appear here once registrations are made</p>
+          </div>
+        `;
+        return;
+      }
+
+      const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+      const sortedKeys = Object.keys(monthlyData).sort();
+      
+      let html = '<div class="report-grid">';
+      sortedKeys.forEach((key, index) => {
+        const data = monthlyData[key];
+        const monthIndex = (data.month % 12) || 12;
+        html += `
+          <div class="report-card month-${monthIndex}">
+            <div class="report-month">${monthNames[data.month - 1]} ${data.year}</div>
+            <div class="report-total">TK ${data.total.toLocaleString('en-US')}</div>
+            <div class="report-count">${data.count} registration${data.count !== 1 ? 's' : ''}</div>
+          </div>
+        `;
+      });
+      html += '</div>';
+      
+      container.innerHTML = html;
+      lucide.createIcons();
+    }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e69099dd1e47096',t:'MTc3NTIyOTQxOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e6985fe12ba7096',t:'MTc3NTIzNDUxNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
