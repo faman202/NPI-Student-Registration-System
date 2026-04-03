@@ -206,12 +206,12 @@
     }
 
     .fee-input-wrapper::before {
-      content: '৳';
+      content: 'TK';
       position: absolute;
       left: 16px;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 700;
       color: #2a5298;
       pointer-events: none;
@@ -567,12 +567,28 @@
       to { opacity: 1; transform: translateX(0); }
     }
 
+    /* Filter Stats */
+    .filter-stats-box {
+      display: none;
+      padding: 12px 16px;
+      background: #e3f2fd;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: #1e3c72;
+      font-weight: 600;
+    }
+
+    .filter-stats-box.active {
+      display: block;
+    }
+
     /* Print Styles */
     @media print {
       body {
         background: white;
       }
-      header, .tab-navigation, .button-group, .action-btn {
+      header, .tab-navigation, .button-group, .action-btn, .filter-section {
         display: none;
       }
       .modal-overlay {
@@ -672,7 +688,7 @@
          <label for="department">Department *</label> <select id="department" required> <option value="">Select Department</option> <option value="Computer Science">Computer Science</option> <option value="Food Technology">Food Technology</option> <option value="Civil Engineering">Civil Engineering</option> <option value="Electrical Engineering">Electrical Engineering</option> <option value="Mechanical Engineering">Mechanical Engineering</option> <option value="Architecture">Architecture</option> <option value="Automobile Engineering">Automobile Engineering</option> </select>
         </div>
         <div class="form-group">
-         <label for="registration-fee">Registration Fee (৳) *</label>
+         <label for="registration-fee">Registration Fee (TK) *</label>
          <div class="fee-input-wrapper">
           <input type="number" id="registration-fee" placeholder="Enter amount" min="0" step="100" required>
          </div>
@@ -686,7 +702,19 @@
     </div><!-- Dashboard Section -->
     <div class="section" id="dashboard">
      <div class="card">
-      <h2 class="card-title"><i data-lucide="bar-chart-2" style="width: 24px; height: 24px;"></i> Semester Registration Status</h2>
+      <h2 class="card-title"><i data-lucide="bar-chart-2" style="width: 24px; height: 24px;"></i> Semester Registration Status</h2><!-- Dashboard Filters -->
+      <div class="filter-section" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 25px; padding-bottom: 20px; border-bottom: 2px solid #ecf0f1;">
+       <div class="form-group">
+        <label for="dashboard-filter-department">Filter by Department</label> <select id="dashboard-filter-department"> <option value="">All Departments</option> <option value="Computer Science">Computer Science</option> <option value="Food Technology">Food Technology</option> <option value="Civil Engineering">Civil Engineering</option> <option value="Electrical Engineering">Electrical Engineering</option> <option value="Mechanical Engineering">Mechanical Engineering</option> <option value="Architecture">Architecture</option> <option value="Automobile Engineering">Automobile Engineering</option> </select>
+       </div>
+       <div class="form-group">
+        <label for="dashboard-filter-semester">Filter by Semester</label> <select id="dashboard-filter-semester"> <option value="">All Semesters</option> <option value="1st">1st Semester</option> <option value="2nd">2nd Semester</option> <option value="3rd">3rd Semester</option> <option value="4th">4th Semester</option> <option value="5th">5th Semester</option> <option value="6th">6th Semester</option> <option value="7th">7th Semester</option> <option value="8th">8th Semester</option> </select>
+       </div>
+       <div class="form-group">
+        <label>&nbsp;</label> <button id="dashboard-reset-filters" class="btn-secondary" style="width: 100%;"> <i data-lucide="rotate-ccw"></i> Reset Filters </button>
+       </div>
+      </div><!-- Dashboard Stats -->
+      <div id="dashboard-stats-box" class="filter-stats-box"></div>
       <div id="dashboard-container"></div>
      </div>
     </div><!-- History Section -->
@@ -703,7 +731,7 @@
       </div>
       <div class="stat-box">
        <div class="stat-number" id="total-fee">
-        ৳0
+        TK 0
        </div>
        <div class="stat-label">
         Total Fee Collected
@@ -719,7 +747,22 @@
       </div>
      </div><!-- Table -->
      <div class="card">
-      <h2 class="card-title"><i data-lucide="table" style="width: 24px; height: 24px;"></i> Registration History</h2>
+      <h2 class="card-title"><i data-lucide="table" style="width: 24px; height: 24px;"></i> Registration History</h2><!-- Filter Section -->
+      <div class="filter-section" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 25px; padding-bottom: 20px; border-bottom: 2px solid #ecf0f1;">
+       <div class="form-group">
+        <label for="filter-department">Filter by Department</label> <select id="filter-department"> <option value="">All Departments</option> <option value="Computer Science">Computer Science</option> <option value="Food Technology">Food Technology</option> <option value="Civil Engineering">Civil Engineering</option> <option value="Electrical Engineering">Electrical Engineering</option> <option value="Mechanical Engineering">Mechanical Engineering</option> <option value="Architecture">Architecture</option> <option value="Automobile Engineering">Automobile Engineering</option> </select>
+       </div>
+       <div class="form-group">
+        <label for="filter-semester">Filter by Semester</label> <select id="filter-semester"> <option value="">All Semesters</option> <option value="1st">1st Semester</option> <option value="2nd">2nd Semester</option> <option value="3rd">3rd Semester</option> <option value="4th">4th Semester</option> <option value="5th">5th Semester</option> <option value="6th">6th Semester</option> <option value="7th">7th Semester</option> <option value="8th">8th Semester</option> </select>
+       </div>
+       <div class="form-group">
+        <label for="filter-board-roll">Filter by Board Roll</label> <input type="text" id="filter-board-roll" placeholder="Search board roll...">
+       </div>
+       <div class="form-group">
+        <label>&nbsp;</label> <button id="reset-filters" class="btn-secondary" style="width: 100%;"> <i data-lucide="rotate-ccw"></i> Reset Filters </button>
+       </div>
+      </div><!-- Filter Stats -->
+      <div id="filter-stats" class="filter-stats-box"></div>
       <div id="history-container">
        <div class="empty-state">
         <i data-lucide="inbox"></i>
@@ -791,6 +834,11 @@
 
     let allRegistrations = [];
     let recordToDelete = null;
+    let filterDepartment = '';
+    let filterSemester = '';
+    let filterBoardRoll = '';
+    let dashboardFilterDepartment = '';
+    let dashboardFilterSemester = '';
 
     // Semester data structure - total students enrolled in each semester
     const semesterData = {
@@ -853,6 +901,7 @@
       }
 
       updateHeaderText();
+      setupFilterListeners();
     }
 
     function updateHeaderText() {
@@ -860,6 +909,77 @@
       const taglineEl = document.getElementById('institute-tagline');
       if (nameEl) nameEl.textContent = config.institute_name || defaultConfig.institute_name;
       if (taglineEl) taglineEl.textContent = config.tagline || defaultConfig.tagline;
+    }
+
+    // Setup filter listeners
+    function setupFilterListeners() {
+      const departmentFilter = document.getElementById('filter-department');
+      const semesterFilter = document.getElementById('filter-semester');
+      const boardRollFilter = document.getElementById('filter-board-roll');
+      const resetBtn = document.getElementById('reset-filters');
+
+      // History filters
+      if (departmentFilter) {
+        departmentFilter.addEventListener('change', (e) => {
+          filterDepartment = e.target.value;
+          renderHistoryTable();
+        });
+      }
+
+      if (semesterFilter) {
+        semesterFilter.addEventListener('change', (e) => {
+          filterSemester = e.target.value;
+          renderHistoryTable();
+        });
+      }
+
+      if (boardRollFilter) {
+        boardRollFilter.addEventListener('input', (e) => {
+          filterBoardRoll = e.target.value;
+          renderHistoryTable();
+        });
+      }
+
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          filterDepartment = '';
+          filterSemester = '';
+          filterBoardRoll = '';
+          if (departmentFilter) departmentFilter.value = '';
+          if (semesterFilter) semesterFilter.value = '';
+          if (boardRollFilter) boardRollFilter.value = '';
+          renderHistoryTable();
+        });
+      }
+
+      // Dashboard filters
+      const dashboardDeptFilter = document.getElementById('dashboard-filter-department');
+      const dashboardSemFilter = document.getElementById('dashboard-filter-semester');
+      const dashboardResetBtn = document.getElementById('dashboard-reset-filters');
+
+      if (dashboardDeptFilter) {
+        dashboardDeptFilter.addEventListener('change', (e) => {
+          dashboardFilterDepartment = e.target.value;
+          updateDashboard();
+        });
+      }
+
+      if (dashboardSemFilter) {
+        dashboardSemFilter.addEventListener('change', (e) => {
+          dashboardFilterSemester = e.target.value;
+          updateDashboard();
+        });
+      }
+
+      if (dashboardResetBtn) {
+        dashboardResetBtn.addEventListener('click', () => {
+          dashboardFilterDepartment = '';
+          dashboardFilterSemester = '';
+          if (dashboardDeptFilter) dashboardDeptFilter.value = '';
+          if (dashboardSemFilter) dashboardSemFilter.value = '';
+          updateDashboard();
+        });
+      }
     }
 
     // Tab Navigation
@@ -879,15 +999,32 @@
     document.getElementById('registration-form').addEventListener('submit', async (e) => {
       e.preventDefault();
 
+      const boardRoll = document.getElementById('board-roll').value;
+      const semester = document.getElementById('semester').value;
+      const department = document.getElementById('department').value;
+      const session = document.getElementById('session').value;
+
+      // Check for duplicate board roll on same day
+      const today = new Date().toDateString();
+      const isDuplicate = allRegistrations.some(reg => {
+        const regDate = new Date(reg.registration_date).toDateString();
+        return reg.board_roll === boardRoll && regDate === today && reg.semester === semester && reg.department === department && reg.session === session;
+      });
+
+      if (isDuplicate) {
+        showToast('⚠️ This student already registered today for this semester!');
+        return;
+      }
+
       const newRecord = {
         id: Date.now().toString(),
         student_name: document.getElementById('student-name').value,
-        board_roll: document.getElementById('board-roll').value,
-        semester: document.getElementById('semester').value,
-        session: document.getElementById('session').value,
+        board_roll: boardRoll,
+        semester: semester,
+        session: session,
         location: document.getElementById('location').value,
         phone_number: document.getElementById('phone-number').value,
-        department: document.getElementById('department').value,
+        department: department,
         registration_fee: document.getElementById('registration-fee').value,
         registration_date: new Date().toISOString()
       };
@@ -916,18 +1053,26 @@
         : '-';
 
       document.getElementById('total-students').textContent = totalStudents;
-      document.getElementById('total-fee').textContent = `৳${totalFee.toLocaleString('bn-BD')}`;
+      document.getElementById('total-fee').textContent = `TK ${totalFee.toLocaleString('en-US')}`;
       document.getElementById('latest-date').textContent = latestDate;
     }
 
     // Update Dashboard
     function updateDashboard() {
-      // Count registrations per semester
+      // Count registrations per semester based on dashboard filters
       Object.keys(semesterData).forEach(sem => {
         semesterData[sem].registered = 0;
       });
 
-      allRegistrations.forEach(reg => {
+      let filteredForDashboard = allRegistrations;
+      if (dashboardFilterDepartment) {
+        filteredForDashboard = filteredForDashboard.filter(reg => reg.department === dashboardFilterDepartment);
+      }
+      if (dashboardFilterSemester) {
+        filteredForDashboard = filteredForDashboard.filter(reg => reg.semester === dashboardFilterSemester);
+      }
+
+      filteredForDashboard.forEach(reg => {
         if (semesterData[reg.semester]) {
           semesterData[reg.semester].registered++;
         }
@@ -937,10 +1082,19 @@
       const container = document.getElementById('dashboard-container');
       let html = '<div class="semester-grid">';
 
+      let totalStudentsFiltered = 0;
+      let totalFeeFiltered = 0;
+
       Object.keys(semesterData).forEach(semester => {
         const data = semesterData[semester];
         const percentage = data.total > 0 ? Math.round((data.registered / data.total) * 100) : 0;
         const pending = Math.max(0, data.total - data.registered);
+
+        totalStudentsFiltered += data.registered;
+        const semesterFee = filteredForDashboard
+          .filter(reg => reg.semester === semester)
+          .reduce((sum, reg) => sum + (parseInt(reg.registration_fee) || 0), 0);
+        totalFeeFiltered += semesterFee;
 
         html += `
           <div class="semester-card">
@@ -964,6 +1118,10 @@
               <span class="semester-stat-label">Pending</span>
               <span class="semester-stat-value">${pending}</span>
             </div>
+            <div class="semester-stat">
+              <span class="semester-stat-label">Fee Collected</span>
+              <span class="semester-stat-value" style="color: #27ae60;">TK ${semesterFee.toLocaleString('en-US')}</span>
+            </div>
             <div class="progress-bar">
               <div class="progress-fill" style="width: ${percentage}%"></div>
             </div>
@@ -974,6 +1132,17 @@
 
       html += '</div>';
       container.innerHTML = html;
+
+      // Show dashboard filter stats
+      const statsBox = document.getElementById('dashboard-stats-box');
+      if (dashboardFilterDepartment || dashboardFilterSemester) {
+        const deptLabel = dashboardFilterDepartment ? `${dashboardFilterDepartment}` : 'All Departments';
+        const semLabel = dashboardFilterSemester ? `${dashboardFilterSemester}` : 'All Semesters';
+        statsBox.textContent = `📊 Total: ${totalStudentsFiltered} students • TK ${totalFeeFiltered.toLocaleString('en-US')} collected (${deptLabel} • ${semLabel})`;
+        statsBox.classList.add('active');
+      } else {
+        statsBox.classList.remove('active');
+      }
     }
 
     function editTotal(semester) {
@@ -1017,18 +1186,49 @@
       }
     }
 
-    // Render History Table
+    // Render History Table with Filtering
     function renderHistoryTable() {
       const container = document.getElementById('history-container');
+      const filterStatsBox = document.getElementById('filter-stats');
 
-      if (allRegistrations.length === 0) {
-        container.innerHTML = `
-          <div class="empty-state">
-            <i data-lucide="inbox"></i>
-            <h3>No Registrations Yet</h3>
-            <p>Start by registering the first student in the Registration tab</p>
-          </div>
-        `;
+      // Filter registrations
+      let filteredRegistrations = allRegistrations.filter(reg => {
+        let matchesDepartment = !filterDepartment || reg.department === filterDepartment;
+        let matchesSemester = !filterSemester || reg.semester === filterSemester;
+        let matchesBoardRoll = !filterBoardRoll || reg.board_roll.toLowerCase().includes(filterBoardRoll.toLowerCase());
+        return matchesDepartment && matchesSemester && matchesBoardRoll;
+      });
+
+      // Show filter stats if filters are active
+      if (filterDepartment || filterSemester || filterBoardRoll) {
+        const deptLabel = filterDepartment ? `${filterDepartment}` : 'All Departments';
+        const semLabel = filterSemester ? `${filterSemester}` : 'All Semesters';
+        const rollLabel = filterBoardRoll ? `Board: ${filterBoardRoll}` : '';
+        const totalFee = filteredRegistrations.reduce((sum, reg) => sum + (parseInt(reg.registration_fee) || 0), 0);
+        filterStatsBox.textContent = `📊 Showing ${filteredRegistrations.length} student(s) • TK ${totalFee.toLocaleString('en-US')} collected • ${deptLabel} • ${semLabel} ${rollLabel}`;
+        filterStatsBox.classList.add('active');
+      } else {
+        filterStatsBox.classList.remove('active');
+      }
+
+      if (filteredRegistrations.length === 0) {
+        if (filterDepartment || filterSemester || filterBoardRoll) {
+          container.innerHTML = `
+            <div class="empty-state">
+              <i data-lucide="search"></i>
+              <h3>No Results Found</h3>
+              <p>No registrations match the selected filters. Try adjusting your filters.</p>
+            </div>
+          `;
+        } else {
+          container.innerHTML = `
+            <div class="empty-state">
+              <i data-lucide="inbox"></i>
+              <h3>No Registrations Yet</h3>
+              <p>Start by registering the first student in the Registration tab</p>
+            </div>
+          `;
+        }
         lucide.createIcons();
         return;
       }
@@ -1043,7 +1243,7 @@
                 <th>Department</th>
                 <th>Semester</th>
                 <th>Phone</th>
-                <th>Fee (৳)</th>
+                <th>Fee (TK)</th>
                 <th>Date</th>
                 <th>Actions</th>
               </tr>
@@ -1051,7 +1251,7 @@
             <tbody>
       `;
 
-      allRegistrations.forEach(reg => {
+      filteredRegistrations.forEach(reg => {
         const regDate = new Date(reg.registration_date).toLocaleDateString('en-GB');
         html += `
           <tr>
@@ -1090,7 +1290,9 @@
       if (!record) return;
 
       const printWindow = window.open('', '_blank');
-      const regDate = new Date(record.registration_date).toLocaleDateString('en-GB');
+      const regDate = new Date(record.registration_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      const regTime = new Date(record.registration_date).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      const feeAmount = parseInt(record.registration_fee).toLocaleString('en-US');
 
       printWindow.document.write(`
         <!DOCTYPE html>
@@ -1170,17 +1372,17 @@
           <div class="fee-section">
             <div class="fee-item">
               <span>Registration Fee:</span>
-              <span>৳${parseInt(record.registration_fee).toLocaleString('bn-BD')}</span>
+              <span>TK ${feeAmount}</span>
             </div>
             <div class="fee-total">
               <span>Total Amount:</span>
-              <span>৳${parseInt(record.registration_fee).toLocaleString('bn-BD')}</span>
+              <span>TK ${feeAmount}</span>
             </div>
           </div>
 
           <div class="footer">
             <p>This is an official registration receipt from National Polytechnic Institute.<br>
-            Printed on ${new Date().toLocaleDateString('bn-BD')} at ${new Date().toLocaleTimeString('bn-BD')}</p>
+            Printed on ${regDate} at ${regTime}</p>
           </div>
         </body>
         </html>
@@ -1278,11 +1480,6 @@
       });
     });
 
-    // Initialize - Only called after password verification
-    // initializeSystems();
-    // lucide.createIcons();
-    // restoreDraft();
-
     // Toast Notification
     function showToast(message) {
       const toast = document.createElement('div');
@@ -1297,5 +1494,5 @@
       }, 3000);
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e6138b901e97096',t:'MTc3NTE0NzQ2My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e69099dd1e47096',t:'MTc3NTIyOTQxOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
