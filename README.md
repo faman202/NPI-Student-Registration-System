@@ -1,6 +1,6 @@
 🌟 Student Registration Management System – Professional Overview
 🔐 ১. Secure Login System
-- প্রথমেই system এ প্রবেশ করতে হলে একটি password (2005) দিতে হবে।
+- প্রথমেই system এ প্রবেশ করতে হলে একটি password দিতে হবে।
 - Features:
 - শুধুমাত্র authorized user access করতে পারবে
 - ভুল password দিলে error message দেখাবে
